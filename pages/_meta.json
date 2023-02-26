@@ -1,7 +1,7 @@
 {
   "index": "Introduction",
   "concepts": "Concepts",
-  "deployments": "Deployments",
+  "gettingstarted": "Getting Started",
   "templates": "Templates & Examples",
   "observability": "Observability",
   "-- Frameworks": {
