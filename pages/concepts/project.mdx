@@ -1,4 +1,5 @@
 # Inference Project
 
-The inference project is the core of Modelz. It is the place where you write your prediction code and deploy it to the cloud.
+To deploy on Modelz, you need to create a **Project**, which groups deployments and autoscaling configurations.
 
+Each project is an abstraction of a deployment, which is a containerized application that runs your inference code. You could deploy multiple projects to the same cluster, and each project can have multiple replicas.

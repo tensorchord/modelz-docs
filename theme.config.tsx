@@ -4,10 +4,10 @@ import { DocsThemeConfig } from 'nextra-theme-docs'
 const config: DocsThemeConfig = {
   logo: <span>Modelz</span>,
   project: {
-    link: 'https://modelz.ai',
+    link: 'https://github.com/tensorchord/modelz-docs',
   },
   chat: {
-    link: 'https://discord.com',
+    link: 'https://discord.com/invite/KqswhpVgdU',
   },
   docsRepositoryBase: 'https://github.com/tensorchord/modelz-docs',
   footer: {

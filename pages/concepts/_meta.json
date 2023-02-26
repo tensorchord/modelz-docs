@@ -1,6 +1,5 @@
 {
     "project": "Inference Project",
-    "server": "Inference Server",
-    "autoscaler": "Autoscaling"
+    "autoscaling": "Autoscaling"
 }
   
