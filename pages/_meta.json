@@ -1,7 +1,8 @@
 {
   "index": "Introduction",
   "concepts": "Concepts",
-  "deployment": "Deployment",
+  "deployments": "Deployments",
+  "templates": "Templates & Examples",
   "observability": "Observability",
   "-- Frameworks": {
     "type": "separator",
@@ -13,6 +14,7 @@
     "type": "separator",
     "title": "Integration"
   },
+  "cli": "CLI",
   "api": "API",
   "sdk": "SDKs",
   "-- About": {

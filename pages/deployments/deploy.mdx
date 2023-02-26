@@ -1,0 +1,34 @@
+# Deploy
+
+Modelz is an end-to-end platform for developers, that allows you to create and deploy your models to the cloud in just a few minutes.
+
+## Sign up
+
+To sign up for Modelz, go to https://cloud.modelz.ai/signup. You can choose to authenticate either with GitHub or by using an email. When using email authentication, you may need to confirm both your email address and a phone number.
+
+## Create & deploy an inference project
+
+Once you have successfully signed up for Modelz, you're ready to start creating an Inference Project.
+
+An [**inference project**](../concepts/project) is the place where you write your prediction code and deploy it to the cloud. When you visit the dashboard, you'll see a list of all your inference projects. There are two ways to create a new project on Modelz:
+
+- **Use a [template](../templates).** You could use one of our templates to get started with your project.
+- **Build and deploy a new project from scratch (WIP)**. You could visit the [**Build**](../deployment/build) page to learn how to build a new inference server and push it to a Docker Registry.
+
+## Configure your inference project
+
+Whenever you create a new inference project on Modelz, the platform will try to preselect the right default configuration for you.
+
+For example, this happens through detecting which framework you're using, and then selecting the right [autoscaling settings](../concepts/autoscaler) for your project automatically.
+
+### Autoscaling
+
+Currently, Modelz supports autoscaling based on inflight requests. This means that you can configure your inference project to scale up or down based on the number of requests that are currently being processed.
+
+You could configure a minimum and maximum number of replicas for your inference project. For example, if you set the minimum number of replicas to 1 and the maximum number of replicas to 10, then Modelz will make sure that your inference project always has at least 1 replica running, and at most 10 replicas running.
+
+For more information about autoscaling, you could visit the [**Autoscaling**](../concepts/autoscaling) page.
+
+## Make predictions
+
+Once you have successfully deployed your inference project, you can use it to make predictions. You can visit the [**Make Predictions**](./inference) page to learn how to use your deployed inference project.
