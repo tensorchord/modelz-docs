@@ -13,6 +13,9 @@ const config: DocsThemeConfig = {
   footer: {
     text: '@TensorChord Inc.',
   },
+  sidebar: {
+    defaultMenuCollapseLevel: 2,
+  },
 }
 
 export default config
