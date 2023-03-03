@@ -3,6 +3,7 @@
   "concepts": "Concepts",
   "gettingstarted": "Getting Started",
   "templates": "Templates & Examples",
+  "speedup": "Speedup & Optimization",
   "observability": "Observability",
   "-- Frameworks": {
     "type": "separator",

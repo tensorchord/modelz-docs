@@ -2,10 +2,186 @@
 
 Before you create the [**Deployment**](../concepts/deployment), you need to first build it and push to a Docker registry. 
 
-The inference server is a Docker image that contains the prediction code and all the dependencies.
+You could also use our pre-built [**Templates**](../templates) directly. These templates could help simplify and expedite the deployment process.
 
 ## Build
 
-We recommend using our CLI `modelz` to build the inference server. 
+Currently we support two inference server frameworks:
 
-WIP.
+- [**Mosec**](../mosec): a high-performance and flexible model serving framework for building ML model-enabled backend and microservices.
+- [**Gradio**](../gradio): a simple and flexible framework for building ML model-enabled web apps.
+
+Here we take [**Mosec**](../mosec) as an example to show how to build a Docker image for the [**Stable Diffusion**](../templates/stable-diffusion).
+
+Building an inference server based on our inference framework [**Mosec**](../mosec) could be straightforward. You will need to provide three key components:
+
+- A `main.py` file: This file contains the code for making predictions.
+- A `requirements.txt` file: This file lists all the dependencies required for the server code to run.
+- A `Dockerfile` or a simpler [`build.envd`](https://envd.tensorchord.ai/guide/getting-started.html): This file contains instructions for building a Docker image that encapsulates the server code and its dependencies.
+
+Here is an template [modelz-template-stable-diffusion](https://github.com/tensorchord/modelz-template-stable-diffusion):
+
+### `main.py`
+
+In the `main.py` file, you need to define a class that inherits from `mosec.Worker` and implements the `forward` method. The `forward` method takes a list of inputs and returns a list of outputs with dynamic batching. You could get more details from the [**Mosec**](../mosec) page.
+
+```python
+from io import BytesIO
+from typing import List
+
+import torch  # type: ignore
+from diffusers import StableDiffusionPipeline  # type: ignore
+
+from mosec import Server, Worker, get_logger
+from mosec.mixin import MsgpackMixin
+
+logger = get_logger()
+
+class StableDiffusion(MsgpackMixin, Worker):
+    def __init__(self):
+        self.pipe = StableDiffusionPipeline.from_pretrained(
+            "runwayml/stable-diffusion-v1-5", torch_dtype=torch.float16
+        )
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.pipe = self.pipe.to(device)
+        self.example = ["useless example prompt"] * 4  # warmup (bs=4)
+
+    def forward(self, data: List[str]) -> List[memoryview]:
+        logger.debug("generate images for %s", data)
+        res = self.pipe(data)
+        logger.debug("NSFW: %s", res[1])
+        images = []
+        for img in res[0]:
+            dummy_file = BytesIO()
+            img.save(dummy_file, format="JPEG")
+            images.append(dummy_file.getbuffer())
+        return images
+
+
+if __name__ == "__main__":
+    server = Server()
+    server.append_worker(StableDiffusion, num=1, max_batch_size=4)
+    server.run()
+```
+
+### `requirements.txt`
+
+In the `requirements.txt` file, you need to list all the dependencies required for the server code to run.
+
+```bash
+msgpack
+mosec
+torch --extra-index-url https://download.pytorch.org/whl/cu116
+diffusers[torch]
+transformers
+accelerate
+```
+
+### `Dockerfile`
+
+In the `Dockerfile`, you need to define the instructions for building a Docker image that encapsulates the server code and its dependencies.
+
+In most cases, you could use the following template:
+
+```docker
+ARG base=nvidia/cuda:11.6.2-cudnn8-devel-ubuntu20.04
+
+FROM ${base}
+
+ENV DEBIAN_FRONTEND=noninteractive LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+ENV PATH /opt/conda/bin:$PATH
+
+ARG CONDA_VERSION=py310_22.11.1-1
+
+RUN set -x && \
+    UNAME_M="$(uname -m)" && \
+    if [ "${UNAME_M}" = "x86_64" ]; then \
+        MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh"; \
+        SHA256SUM="00938c3534750a0e4069499baf8f4e6dc1c2e471c86a59caa0dd03f4a9269db6"; \
+    elif [ "${UNAME_M}" = "s390x" ]; then \
+        MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-${CONDA_VERSION}-Linux-s390x.sh"; \
+        SHA256SUM="a150511e7fd19d07b770f278fb5dd2df4bc24a8f55f06d6274774f209a36c766"; \
+    elif [ "${UNAME_M}" = "aarch64" ]; then \
+        MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-${CONDA_VERSION}-Linux-aarch64.sh"; \
+        SHA256SUM="48a96df9ff56f7421b6dd7f9f71d548023847ba918c3826059918c08326c2017"; \
+    elif [ "${UNAME_M}" = "ppc64le" ]; then \
+        MINICONDA_URL="https://repo.anaconda.com/miniconda/Miniconda3-${CONDA_VERSION}-Linux-ppc64le.sh"; \
+        SHA256SUM="4c86c3383bb27b44f7059336c3a46c34922df42824577b93eadecefbf7423836"; \
+    fi && \
+    wget "${MINICONDA_URL}" -O miniconda.sh -q && \
+    echo "${SHA256SUM} miniconda.sh" > shasum && \
+    if [ "${CONDA_VERSION}" != "latest" ]; then sha256sum --check --status shasum; fi && \
+    mkdir -p /opt && \
+    bash miniconda.sh -b -p /opt/conda && \
+    rm miniconda.sh shasum && \
+    ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
+    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
+    echo "conda activate base" >> ~/.bashrc && \
+    find /opt/conda/ -follow -type f -name '*.a' -delete && \
+    find /opt/conda/ -follow -type f -name '*.js.map' -delete && \
+    /opt/conda/bin/conda clean -afy
+
+RUN conda create -n envd python=3.9
+
+ENV ENVD_PREFIX=/opt/conda/envs/envd/bin
+
+RUN update-alternatives --install /usr/bin/python python ${ENVD_PREFIX}/python 1 && \
+    update-alternatives --install /usr/bin/python3 python3 ${ENVD_PREFIX}/python3 1 && \
+    update-alternatives --install /usr/bin/pip pip ${ENVD_PREFIX}/pip 1 && \
+    update-alternatives --install /usr/bin/pip3 pip3 ${ENVD_PREFIX}/pip3 1
+
+COPY requirements.txt /
+
+RUN pip install -r requirements.txt
+
+RUN mkdir -p /workspace
+
+COPY main.py workspace/
+
+WORKDIR workspace
+
+RUN python main.py --dry-run
+
+ENTRYPOINT [ "python", "main.py" ]
+```
+
+### `build.envd` 
+
+On the other hand, a [`build.envd`]("https://envd.tensorchord.ai/guide/getting-started.html") is a simplified alternative to a Dockerfile. It provides python-based interfaces that contains configuration settings for building a image. 
+
+It is easier to use than a Dockerfile as it involves specifying only the dependencies of your machine learning model, not the instructions for CUDA, Python, and other system-level dependencies.
+
+```python
+# syntax=v1
+def basic():
+    install.cuda(version="11.6.2")
+    install.python()
+    install.python_packages(requirements="requirements.txt")
+
+def build():
+    basic()
+    io.copy("main.py", "/")
+    run(["python main.py --dry-run"])
+    config.entrypoint(["python", "main.py"])
+```
+
+## Pushing the image to the registry
+
+After building the image, you can push it to the registry. 
+
+```
+docker push <your-image-name>:<your-image-tag>
+# or
+envd build --output type=image,name=<your-image-name>:<your-image-tag>,push=true
+```
+
+Then, you could deploy the inference server to the Modelz.
+
+import { Card, Cards } from 'nextra-theme-docs'
+
+<Cards>
+  <Card icon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+</svg>
+} title="Deploy" href="/gettingstarted/deploy"/>
+</Cards>

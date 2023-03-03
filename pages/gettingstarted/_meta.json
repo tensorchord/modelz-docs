@@ -1,5 +1,5 @@
 {
-    "build": "Build & Push (Working in Progress)",
+    "build": "Build & Push",
     "deploy": "Deploy",
     "inference": "Make Predictions"
 }
