@@ -1,6 +1,6 @@
 # Build and Push
 
-Before you create the [**Deployment**](../concepts/deployment), you need to first build it and push to a Docker registry. 
+Before you create the [**Deployment**](../concepts/deployment), you need to first build the inference server and push it to an OCI-compliant registry (e.g. Docker Hub, GitHub Container Registry, etc.).
 
 You could also use our pre-built [**Templates**](../templates) directly. These templates could help simplify and expedite the deployment process.
 
@@ -147,7 +147,7 @@ ENTRYPOINT [ "python", "main.py" ]
 
 ### `build.envd` 
 
-On the other hand, a [`build.envd`]("https://envd.tensorchord.ai/guide/getting-started.html") is a simplified alternative to a Dockerfile. It provides python-based interfaces that contains configuration settings for building a image. 
+On the other hand, a [`build.envd`](https://envd.tensorchord.ai/guide/getting-started.html) is a simplified alternative to a Dockerfile. It provides python-based interfaces that contains configuration settings for building a image. 
 
 It is easier to use than a Dockerfile as it involves specifying only the dependencies of your machine learning model, not the instructions for CUDA, Python, and other system-level dependencies.
 
