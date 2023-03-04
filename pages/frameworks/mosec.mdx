@@ -10,7 +10,7 @@
 
 Mosec requires Python 3.7 or above. Install the latest [PyPI package](https://pypi.org/project/mosec/) with:
 
-```shell
+```shell copy
 pip install -U mosec
 ```
 
@@ -18,7 +18,7 @@ pip install -U mosec
 
 We demonstrate how Mosec can help you easily host a pre-trained stable diffusion model as a service. You need to install [diffusers](https://github.com/huggingface/diffusers) and [transformers](https://github.com/huggingface/transformers) as prerequisites:
 
-```shell
+```shell copy
 pip install --upgrade diffusers[torch] transformers
 ```
 
@@ -26,7 +26,7 @@ pip install --upgrade diffusers[torch] transformers
 
 We **build an API** for clients to query a text prompt and obtain an image based on the [stable-diffusion-v1-5 model](https://huggingface.co/runwayml/stable-diffusion-v1-5) in just 3 steps.
 
-```python {2,10}
+```python {2,10} copy
 class StableDiffusion(MsgpackMixin, Worker):
     def __init__(self):
         self.pipe = StableDiffusionPipeline.from_pretrained(
@@ -67,7 +67,7 @@ class StableDiffusion(MsgpackMixin, Worker):
 
 Finally, we append the worker to the server to construct a *single-stage* workflow (multiple stages can be [pipelined](https://en.wikipedia.org/wiki/Pipeline_(computing)) to further boost the throughput, see [this example](https://mosecorg.github.io/mosec/example/pytorch/#computer-vision)), and specify the number of processes we want it to run in parallel (`num=1`), and the maximum batch size (`max_batch_size=4`, the maximum number of requests dynamic batching will accumulate before timeout; timeout is defined with the flag `--wait` in milliseconds, meaning the longest time Mosec waits until sending the batch to the Worker).
 
-```python
+```python copy
 if __name__ == "__main__":
     server = Server()
     # 1) `num` specify the number of processes that will be spawned to run in parallel.

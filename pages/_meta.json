@@ -5,11 +5,7 @@
   "templates": "Templates & Examples",
   "speedup": "Speedup & Optimization",
   "observability": "Observability",
-  "-- Frameworks": {
-    "type": "separator",
-    "title": "Deep Learning & Serving Frameworks"
-  },
-  "mosec": "Serving Server - Mosec",
+  "frameworks": "Frameworks",
   "-- Integration": {
     "type": "separator",
     "title": "Integration"

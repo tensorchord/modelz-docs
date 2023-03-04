@@ -8,12 +8,12 @@ You could also use our pre-built [**Templates**](../templates) directly. These t
 
 Currently we support two inference server frameworks:
 
-- [**Mosec**](../mosec): a high-performance and flexible model serving framework for building ML model-enabled backend and microservices.
-- [**Gradio**](../gradio): a simple and flexible framework for building ML model-enabled web apps.
+- [**Mosec**](../frameworks/mosec): a high-performance and flexible model serving framework for building ML model-enabled backend and microservices.
+- [**Gradio**](../frameworks/gradio): a simple and flexible framework for building ML model-enabled web apps.
 
-Here we take [**Mosec**](../mosec) as an example to show how to build a Docker image for the [**Stable Diffusion**](../templates/stable-diffusion).
+Here we take [**Mosec**](../frameworks/mosec) as an example to show how to build a Docker image for the [**Stable Diffusion**](../templates/stable-diffusion).
 
-Building an inference server based on our inference framework [**Mosec**](../mosec) could be straightforward. You will need to provide three key components:
+Building an inference server based on our inference framework [**Mosec**](../frameworks/mosec) could be straightforward. You will need to provide three key components:
 
 - A `main.py` file: This file contains the code for making predictions.
 - A `requirements.txt` file: This file lists all the dependencies required for the server code to run.
@@ -23,7 +23,7 @@ Here is an template [modelz-template-stable-diffusion](https://github.com/tensor
 
 ### `main.py`
 
-In the `main.py` file, you need to define a class that inherits from `mosec.Worker` and implements the `forward` method. The `forward` method takes a list of inputs and returns a list of outputs with dynamic batching. You could get more details from the [**Mosec**](../mosec) page.
+In the `main.py` file, you need to define a class that inherits from `mosec.Worker` and implements the `forward` method. The `forward` method takes a list of inputs and returns a list of outputs with dynamic batching. You could get more details from the [**Mosec**](../frameworks/mosec) page.
 
 ```python
 from io import BytesIO
