@@ -2,10 +2,10 @@
   "index": "Introduction",
   "concepts": "Concepts",
   "gettingstarted": "Getting Started",
+  "frameworks": "Frameworks",
   "templates": "Templates & Examples",
   "speedup": "Speedup & Optimization",
   "observability": "Observability",
-  "frameworks": "Frameworks",
   "-- Integration": {
     "type": "separator",
     "title": "Integration"

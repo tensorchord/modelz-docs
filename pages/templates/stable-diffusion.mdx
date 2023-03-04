@@ -1,0 +1,21 @@
+# Stable Diffusion
+
+[Stable Diffusion](https://github.com/Stability-AI/stablediffusion) is a latent text-to-image diffusion model capable of generating photo-realistic images given any text input.
+
+![stable diffusion](./images/sd.png)
+
+We provide the [**Gradio**](../frameworks/gradio) app based on [AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui), and the inference server template [modelz-template-stable-diffusion](https://github.com/tensorchord/modelz-template-mosec).
+
+## Gradio
+
+You could deploy our pre-built Gradio app to Modelz if you want to quickly try out Stable Diffusion.
+
+![](./images/sd-gradio.png)
+
+## Mosec
+
+You could deploy the inference server template then use our [**SDK**](../sdk) to make predictions.
+
+```python copy
+import modelz
+```
