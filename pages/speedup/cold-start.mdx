@@ -11,7 +11,7 @@ As we know, the cold start is a critical aspect of inference that can impact the
 
 Let's take stable diffusion v1.5 as an example. The inference server image is about 4GB. While  the full [`runwayml/stable-diffusion-v1-5`](https://huggingface.co/runwayml/stable-diffusion-v1-5/tree/main) model on Huggingface Hub is approximately 20GB.
 
-To mitigate the impact of the size of your model and related dependencies on the performance of your inference, we cache the public images, **and the public models on Huggingface** on the platform.
+To mitigate the impact of the size of your model and related dependencies on the performance of your inference, we cache the public images, **and the public models on Huggingface** by default.
 
 This means that you do not need to keep your model in the image if you are using public models (e.g. `runwayml/stable-diffusion-v1-5`) on Huggingface Hub.
 
