@@ -21,14 +21,10 @@
   "limits": "Limits & Limitations",
   "faq": "FAQ",
   "pricing": "Payment & Billing",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
-  "contact": {
-    "title": "Contact ↗",
+  "home": {
+    "title": "Home ↗",
     "type": "page",
-    "href": "https://twitter.com/tensorchord",
+    "href": "https://modelz.ai",
     "newWindow": true
   }
 }
