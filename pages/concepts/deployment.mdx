@@ -4,7 +4,7 @@ To deploy on Modelz, you need to create a **Deployment**, which is a containeriz
 
 ## Autoscaler
 
-The autoscaler scales [**Deployment**](./deployment) horizontally between a minimum and maximum number of replicas, or to zero.
+The autoscaler scales **Deployment** horizontally between a minimum and maximum number of replicas, or to zero.
 
 You can configure the autoscaler to scale based on the number of concurrent requests. Configuration options are shown here:
 
@@ -18,7 +18,3 @@ You can configure the autoscaler to scale based on the number of concurrent requ
 Let's say `min_replicas` is 0, `max_replicas` is 2, and `target_load` is 5. This means that you have a model that can handle 5 concurrent requests per replica. 
 
 The replicas will be 0 when there are no requests, and will scale up to 1 when there are 1 concurrent requests. If there are 6 concurrent requests, the replicas will scale up to 2. And after 30 seconds of no requests, the replicas will scale down to 0.
-
-### Configure the Autoscaler
-
-These options are available in the [**Deployment**](./deployment). You could configure them in the dashboard.
