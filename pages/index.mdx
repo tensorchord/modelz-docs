@@ -1,21 +1,21 @@
 # Introduction to Modelz
 
-Modelz is a platform for developers, providing **serverless inference** services. You could easily write your prediction code and deploy it to the cloud.
+Modelz is a developer-first platform for prototyping and deploying machine learning models. With our dashboard and APIs, developers can easily bring their ML ideas to life without worrying about the hassle of infrastructure setup or maintenance.
 
 ## Why use Modelz
 
 Modelz provides the following features out-of-the-box:
 
-- **Easy to use**: Forget the hassle of managing servers. Get your model deployed in just a few minutes!
-- **Serverless**: Autoscaling (from 0 replica) and load balancing are effortless tasks with our automated system, allowing us to deliver the best possible performance all around.
-- **Reduce cost**: Just pay for what you use. No more paying for cold starts and idle servers. **Plus**, get 30 minutes free on us when you join.
-- **Team alignment**: Comming soon.
-- **Automated git integration**: Comming soon.
+- **Easy to use**: With our intuitive user interface and tools, Modelz makes it easy for users to get started with prototyping and deploying machine learning models. You don't need to worry about setting up or maintaining infrastructure, and could focus on building amazing machine learning applications instead.
+- **Developer first**: Modelz is designed with developers in mind, providing extensive documentation and tutorials, along with a robust API, SDK, and CLI so that you could integrate machine learning applications swiftly and with ease.
+- **Serverless**: Serverless architecture enables us to easily scale up or down according to your needs, allowing us to provide a reliable and scalable solution for deploying and prototyping machine learning applications at any scale.
+- **Reduce cost**: Just pay for what you use. No more paying for cold starts and idle servers. **Plus**, get 1 GPU hour free on us when you join.
+- **Prototyping environment**: We support [Gradio](https://gradio.app/) that enables developers to experiment with different models in the browser.
 
 ## Deploy your first model in 3 minutes
 
-- [Sign up](https://modelz.io/signup) for a free account.
-- Deploy your first model on Modelz. You could use our [**templates**](./templates).
+- [Sign up](https://modelz.io/signup): Head to our website and sign up for a free account. Once you've signed up, you'll be able to access our platform and start deploying and prototyping machine learning models. You will get 1 free GPU hour on us.
+- Deploy your first model on Modelz. You could use our [**templates**](./templates). Modelz's serverless architecture means you don't need to worry about managing or scaling infrastructure - we take care of that for you.
 
 <Cards>
   <Card icon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -28,12 +28,27 @@ Modelz provides the following features out-of-the-box:
 } title="Chatbot - ChatYuan" href="/templates/chatyuan"/>
 </Cards>
 
-- Enjoy your model! You could use our [**SDK**](./sdk) to call your model, or you could use `curl`:
+- Once your model is ready, feel free to start using it! You could take advantage of our [**SDK**](./sdk) to easily make calls to your model.
+
+```python copy
+# pip install modelz-py
+import modelz
+
+apiKey = "mzi-abcdefg..."
+
+cli = modelz.ModelzClient(api_key=apiKey, project="abcdgefg...")
+cli.inference(params={}, timeout=10)
+```
+
+Or alternatively, you could use the `curl`.
 
 ```bash copy
-curl -X POST -H "Content-Type: application/json" \
--d '{"input": "hello world"}' \
-https://modelz.io/api/v1/models/your-model-name/predict
+curl --location 'http://cloud.modelz.ai/api/v1/mosec/inference/{DEPLOYMENT_ID}.{UID}/inference' \
+--header 'Content-Type: application/json' \
+--header 'X-API-Key: mzi-abcdefg...' \
+--data '{
+    ...
+}'
 ```
 
 ## Getting started
