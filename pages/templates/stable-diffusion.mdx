@@ -17,5 +17,13 @@ You could deploy our pre-built Gradio app to Modelz if you want to quickly try o
 You could deploy the inference server template then use our [**SDK**](../sdk) to make predictions.
 
 ```python copy
+# pip install modelz-py
 import modelz
+
+apiKey = "mzi-abcdefg..."
+
+cli = modelz.ModelzClient(api_key=apiKey, project="abcdgefg...")
+cli.inference(params={
+    "text": "A dog is running in the grass."
+}, timeout=10)
 ```
