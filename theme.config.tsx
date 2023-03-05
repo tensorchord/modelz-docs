@@ -8,9 +8,6 @@ const config: DocsThemeConfig = {
     link: 'https://discord.com/invite/KqswhpVgdU',
   },
   docsRepositoryBase: 'https://github.com/tensorchord/modelz-docs/tree/main',
-  footer: {
-    text: '@TensorChord Inc.',
-  },
   useNextSeoProps() {
     const { asPath } = useRouter()
     if (asPath !== '/') {
