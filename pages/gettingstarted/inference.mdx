@@ -25,7 +25,7 @@ You could also use the `curl` command to make predictions.
 For example, if you have deployed a Deployment `a2a4bb7d-2899-4472-a3b4-ee69f04650a9` and you want to make a prediction using the `curl` command, you could run the following command:
 
 ```bash copy
-curl --location 'http://cloud.modelz.ai/api/v1/mosec/inference/a2a4bb7d-2899-4472-a3b4-ee69f04650a9.{UID}/inference' \
+curl --location 'https://a2a4bb7d-2899-4472-a3b4-ee69f04650a9.modelz.io/inference' \
 --header 'Content-Type: application/json' \
 --header 'X-API-Key: mzi-abcdefg...' \
 --data '{

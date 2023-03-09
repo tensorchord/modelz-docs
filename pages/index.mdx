@@ -43,7 +43,7 @@ cli.inference(params={}, timeout=10)
 Or alternatively, you could use the `curl`.
 
 ```bash copy
-curl --location 'http://cloud.modelz.ai/api/v1/mosec/inference/{DEPLOYMENT_ID}.{UID}/inference' \
+curl --location 'https://{DEPLOYMENT_ID}.modelz.io/inference' \
 --header 'Content-Type: application/json' \
 --header 'X-API-Key: mzi-abcdefg...' \
 --data '{
