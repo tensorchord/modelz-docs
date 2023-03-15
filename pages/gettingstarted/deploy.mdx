@@ -19,6 +19,8 @@ A [**Deployment**](../concepts/deployment) is the place where you write your pre
 
 Whenever you create a new inference deployment on Modelz, the platform will try to preselect the right default configuration for you.
 
+![Deployment Configuration](./images/gradio-demo.png)
+
 For example, this happens through detecting which framework you're using, and then selecting the right [autoscaling settings](../concepts/autoscaling) for your deployment automatically.
 
 ### Autoscaling
@@ -29,6 +31,16 @@ You could configure a minimum and maximum number of replicas for your inference 
 
 For more information about autoscaling, you could visit the [**Autoscaler**](../concepts/deployment#autoscaler) page.
 
+## Get your Deployment URL
+
+Once you have successfully deployed your inference deployment, you could visit the detail page to get the endpoint URL:
+
+![Deployment Detail](./images/details.png)
+
+You could visit the web UI by clicking on the URL if the deployment is based on [**Gradio**](../frameworks/gradio).
+
+
+
 ## Make predictions
 
-Once you have successfully deployed your inference deployment, you can use it to make predictions. You can visit the [**Make Predictions**](./inference) page to learn how to use your deployed inference deployment.
+Or you could use the URL to make predictions. You can visit the [**Make Predictions**](./inference) page to learn how to use your deployed inference deployment.
