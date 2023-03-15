@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 const config: DocsThemeConfig = {
   logo: <span>Modelz</span>,
   chat: {
-    link: 'https://discord.com/invite/KqswhpVgdU',
+    link: 'https://discord.gg/F4WnzqmeNj',
   },
   docsRepositoryBase: 'https://github.com/tensorchord/modelz-docs/tree/main',
   useNextSeoProps() {
