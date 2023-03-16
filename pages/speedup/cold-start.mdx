@@ -9,7 +9,7 @@ As we know, the cold start is a critical aspect of inference that can impact the
 - Image pulling: When you deploy a model, image will be pulled from the Docker registry. This process can take some time.
 - Model pulling: The model should also be pulled from [Huggingface Hub](https://huggingface.co/).
 
-Let's take stable diffusion v1.5 as an example. The inference server image is about 4GB. While  the full [`runwayml/stable-diffusion-v1-5`](https://huggingface.co/runwayml/stable-diffusion-v1-5/tree/main) model on Huggingface Hub is approximately 20GB.
+Let's take stable diffusion v1.5 as an example. The inference server image is about 4GB. While the full [`runwayml/stable-diffusion-v1-5`](https://huggingface.co/runwayml/stable-diffusion-v1-5/tree/main) model on Huggingface Hub is approximately 20GB.
 
 To mitigate the impact of the size of your model and related dependencies on the performance of your inference, we cache the public images, **and the public models on Huggingface** by default.
 
@@ -21,15 +21,15 @@ While caching public docker images can help reduce load times, it's still benefi
 
 There are several strategies you could employ to reduce the size of your image, including:
 
-- **Use a lightweight base image**: Choose a base image that is lightweight, so that you are not carrying excess weight in your image. 
-- **Try [`envd`](https://envd.tensorchord.ai/guide/getting-started.html) instead of Docker**: If you're not familiar with Docker or building Docker images, then [envd](https://envd.tensorchord.ai/guide/getting-started.html) could be a great tool to use. It provides a simplified interface for building images and can be used to build lightweight model serving images optimized for your specific use case. 
+- **Use a lightweight base image**: Choose a base image that is lightweight, so that you are not carrying excess weight in your image.
+- **Try [`envd`](https://envd.tensorchord.ai/guide/getting-started.html) instead of Docker**: If you're not familiar with Docker or building Docker images, then [envd](https://envd.tensorchord.ai/guide/getting-started.html) could be a great tool to use. It provides a simplified interface for building images and can be used to build lightweight model serving images optimized for your specific use case.
 - **Remove unnecessary files**: Make sure that your image only includes the files and dependencies required to run your model - this can help reduce the overall size of your image.
 
 ## Pre-loading or Pre-warming
 
 One technique that can help reduce load times and improve the overall efficiency of your model serving is to load your models when initializing the server. This approach is commonly known as pre-loading or pre-warming the server.
 
-This is enbaled by default in Mosec. The `worker` initializes the pipeline from a `pre-trained` model. The model will be downloaded during the initialization.
+This is enabled by default in Mosec. The `worker` initializes the pipeline from a `pre-trained` model. The model will be downloaded during the initialization.
 
 Besides, you could also pre-warm the server with `self.example`. The example prompts will be used to warm up the server.
 
