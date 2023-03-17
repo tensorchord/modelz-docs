@@ -20,7 +20,7 @@
   "dependencies": {
     "next": "^13.0.6",
     "nextjs-google-analytics": "^2.3.3",
-    "nextra": "latest",
+    "nextra": "^2.2.19",
     "nextra-theme-docs": "latest",
     "react": "latest",
     "react-dom": "latest"
