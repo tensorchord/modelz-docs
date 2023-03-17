@@ -11,8 +11,8 @@
     "title": "Integration"
   },
   "cli": "CLI",
-  "api-reference": "API Reference",
   "sdk": "SDKs",
+  "api-reference": "API Reference",
   "-- About": {
     "type": "separator",
     "title": "About"
