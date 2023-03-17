@@ -1,4 +1,4 @@
-# SDK
+# SDKs
 
 In this section, we will introduce how to use the SDK to interact with Modelz.
 
@@ -10,7 +10,7 @@ We provide a Python SDK for interacting with Modelz. You can install it with `pi
 pip install modelz-py
 ```
 
-You could use the following code to make a prediction request:
+You could use the following code to make a prediction request to the [**stable diffusion**](./templates/stable-diffusion) mosec server:
 
 ```python copy
 # pip install modelz-py
@@ -21,4 +21,5 @@ key = "mzi-abcde..."
 
 client = modelz.ModelzClient(key=key, project="stable-diffusion-w41s2qknzjo0fk3i", serde="msgpack")
 resp = client.inference(params="cute cat")
+resp.save_to_file("inference.jpg")
 ```
