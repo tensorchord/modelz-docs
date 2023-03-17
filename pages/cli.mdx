@@ -1,3 +1,21 @@
 # Modelz CLI
 
-Coming soon.
+Modelz CLI is a command line interface that allows you to make predictions with your deployed models.
+
+## Installation
+
+You could install the CLI by running the following command:
+
+```bash
+pip install modelz-py
+```
+
+## Usage
+
+You could use `modelz inference` to send a prediction request to the server:
+
+``` copy
+modelz inference $DEPLOYMENT --param prompt="cute cat"
+```
+
+You need to replace `$DEPLOYMENT` with the key of your deployment. Besides this, you need to set the environment variable `MODELZ_API_KEY` to your API key. You could get it from the [**API Keys**](https://cloud.modelz.ai/settings/user) page.
