@@ -30,11 +30,11 @@ $running\_time + idle\_time = 130$
 - $running\_time_{s1} = 100$ The inference server `s1` runs for 100 seconds.
 - $running\_time_{s2} = 300$ The inference server `s2` runs for 300 seconds.
 - $running\_time_{s3} = 500$ The inference server `s3` runs for 500 seconds.
-- $idle\_time_{s} = 30$ The inference server `s1`, `s2` and `s3` remains idle for a period of 30 seconds before it is automatically scaled down.
+- $idle\_time = 30$ The inference server `s1`, `s2` and `s3` remains idle for a period of 30 seconds before it is automatically scaled down.
 
 In this case, we only charge for 990 seconds.
 
-$running\_time_{s1} + running\_time_{s2} + running\_time_{s3} + 3 \cdot idle\_time_{s} = 990$
+$running\_time_{s1} + running\_time_{s2} + running\_time_{s3} + 3 \cdot idle\_time = 990$
 
 ## Billing
 
