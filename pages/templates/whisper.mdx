@@ -1,0 +1,32 @@
+# Whisper
+
+[Whipser](https://openai.com/research/whisper) is an automatic speech recognition system that enables transcription in multiple languages.
+
+We provide the [**mosec**](../frameworks/mosec) inference service template.
+
+## Mosec
+
+You can deploy the pre-built Whisper serving Docker image [modelzai/mosec-whisper](https://hub.docker.com/r/modelzai/mosec-whisper) to deploy the service.
+
+![](./images/whisper-mosec.png)
+
+Run the inference with [**SDK**](../sdk).
+
+- CLI
+```shell copy
+modelz inference whisper-demo-XXX --serde raw --read-stdin <speech_16000.mp3
+```
+
+- Python Client
+```python copy
+import modelz
+
+
+APIKey = "mzi-abcdefg..."
+
+cli = modelz.ModelzClient(project="whisper-demo-XXX", key=APIKey, serde="raw")
+with open("speech_16000.mp3", "rb") as f:
+    data = f.read()
+resp = cli.inference(params=data)
+print(resp.data)
+```
