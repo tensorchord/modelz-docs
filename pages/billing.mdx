@@ -14,7 +14,7 @@ We only charge for the $running\_time$ and $idle\_time$.
 Let's take a look at an example. We assume that:
 
 - $cold\_start = 10$ The inference server needs 10 seconds to start up.
-- $image\_load = 10$ The inference server needs to pull a 10GB model from Huggingface Hub, which takes 10 seconds. (You could optimize it by using)
+- $image\_load = 10$ The inference server needs to pull a 10GB model from Huggingface Hub, which takes 10 seconds. (You could optimize it by using [**cold start optimizations**](./speedup/cold-start))
 
 **Case 1: 1 replica**
 
