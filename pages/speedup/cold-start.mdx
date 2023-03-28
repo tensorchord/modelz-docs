@@ -2,7 +2,7 @@
 
 Speeding up the cold start of your inference server is a key aspect of optimizing the performance. Here are some tips you could take to address this.
 
-## Keeping models in image, or not?
+## Keeping models in image
 
 As we know, the cold start is a critical aspect of inference that can impact the performance and user experience. There are two core factors that contribute to this challenge:
 
@@ -11,13 +11,26 @@ As we know, the cold start is a critical aspect of inference that can impact the
 
 Let's take stable diffusion v1.5 as an example. The inference server image is about 4GB. While the full [`runwayml/stable-diffusion-v1-5`](https://huggingface.co/runwayml/stable-diffusion-v1-5/tree/main) model on Huggingface Hub is approximately 20GB.
 
-To mitigate the impact of the size of your model and related dependencies on the performance of your inference, we cache the public images, **and the public models on Huggingface** by default.
+To mitigate the impact of the size of your model and related dependencies on the performance of your inference, we recommend that you keep your model in the image. This will reduce the time it takes to pull the model and the overall cold start time. [**Mosec**](../frameworks/mosec) could help you achieve this with `--dry-run` option.
 
-This means that you do not need to keep your model in the image if you are using public models (e.g. `runwayml/stable-diffusion-v1-5`) on Huggingface Hub.
+```docker copy {4,7}
+WORKDIR workspace
+
+# keep the model in the image
+RUN python main.py --dry-run
+
+# disable huggingface update check to accelerate the cold start
+ENV HF_HUB_OFFLINE=true
+
+ENTRYPOINT [ "python", "main.py" ]
+CMD [ "--timeout", "20000" ]
+```
+
+You could add `RUN python main.py --dry-run` in your `Dockerfile`.
 
 ## Reduce the size of your image
 
-While caching public docker images can help reduce load times, it's still beneficial to reduce the size of your image wherever possible.
+It's still beneficial to reduce the size of your image wherever possible.
 
 There are several strategies you could employ to reduce the size of your image, including:
 
