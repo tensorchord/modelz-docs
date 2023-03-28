@@ -24,12 +24,13 @@ You could deploy the inference server template then use our [**SDK**](../sdk) to
 # pip install modelz-py
 import modelz
 
-apiKey = "mzi-abcdefg..."
 
-cli = modelz.ModelzClient(api_key=apiKey, project="abcdgefg...")
+APIKey = "mzi-abcdefg..."
+
+cli = modelz.ModelzClient(project="abcdgefg...", key=APIKey, serde="msgpack")
 cli.inference(params={
     "text": "A dog is running in the grass."
-}, timeout=10)
+}).save_to_file("dog.jpg")
 ```
 
 You could use the pre-built docker image [modelzai/mosec-stable-diffusion:23.03]() to deploy the app.
