@@ -27,9 +27,23 @@ You could click on the template to use it. You'll be redirected to the deploymen
 
 Whenever you create a new inference deployment on Modelz, the platform will try to preselect the right default configuration for you.
 
-![Deployment Configuration](./images/gradio-demo.png)
+import { Tab, Tabs } from 'nextra-theme-docs'
+import Image from 'next/image'
+import mosecDemo from './images/mosec-demo.png'
+import gradioDemo from './images/gradio-demo.png'
+ 
+<Tabs items={['huggingface space', 'docker']}>
+  <Tab>
+    You could deploy the gradio application from huggingface space. You could use the full URL of the huggingface space (e.g. <code>https://huggingface.co/spaces/project-baize/Baize-7B</code>) or the space name (e.g. <code>project-baize/Baize-7B</code>) in the <code>Source</code> field.
 
-For example, this happens through detecting which framework you're using, and then selecting the right [autoscaling settings](../concepts/autoscaling) for your deployment automatically.
+    <Image src={gradioDemo} alt="Deployment Configuration" width={500} height={1000} />
+  </Tab>
+  <Tab>
+    You could also deploy gradio or mosec applications from docker registry. You could use the full URL of the docker registry (e.g. <code>modelzai/mosec-stable-duffsion:23.02</code>) in the <code>Source</code> field.
+
+    <Image src={mosecDemo} alt="Deployment Configuration" width={500} height={1000} />
+  </Tab>
+</Tabs>
 
 ### Autoscaling
 
