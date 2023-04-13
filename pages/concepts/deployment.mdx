@@ -6,13 +6,15 @@ To deploy on Modelz, you need to create a **Deployment**, which is a containeriz
 
 The autoscaler scales **Deployment** horizontally between a minimum and maximum number of replicas, or to zero.
 
+![](./images/autoscale.png)
+
 You can configure the autoscaler to scale based on the number of concurrent requests. Configuration options are shown here:
 
-- `min_replicas`: Minimum number of replicas to scale to. Defaults to 0.
-- `max_replicas`: Maximum number of replicas to scale to. Defaults to 1.
-- `target_load`: Ideal number of concurrent requests per replica. Defaults to 5.
-- `zero_duration`: Idle duration before scaling to zero. Defaults to 30 seconds.
-- `scale_up_duration`: Duration before scaling up. Defaults to 30 seconds.
+- `min-replicas`: Minimum number of replicas to scale to. Defaults to 0.
+- `max-replicas`: Maximum number of replicas to scale to. Defaults to 1.
+- `target-load`: Ideal number of concurrent requests per replica. Defaults to 5.
+- `scale-to-zero-duration`: Idle duration before scaling to zero. Defaults to 30 seconds.
+- `startup-duration`: Duration to wait for the deployment to start up. Defaults to 10 minutes.
 
 ### Examples
 
@@ -26,3 +28,4 @@ You can configure the hardware requirements for your deployment. Currently, we p
 
 - `cpu-4c-16g`: CPU instance with 4 cores and 16GB of memory.
 - `nvidia-t4-4c-16g`: GPU instance with 4 cores, 16GB of memory, and a NVIDIA T4 GPU.
+- `nvidia-ampere-a100-40g-12c-85g`: GPU instance with 12 cores, 85GB of memory, and a NVIDIA A100 GPU (40GB).
