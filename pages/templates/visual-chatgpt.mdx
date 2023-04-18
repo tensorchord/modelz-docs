@@ -8,6 +8,13 @@
 
 You could deploy our pre-built Gradio app to Modelz if you want to quickly try out Visual ChatGPT.
 
-![](./images/visual-chatgpt.png)
+import {Callout } from 'nextra-theme-docs'
 
-Please use the pre-built image [modelzai/gradio-visual-chatgpt:23.03](https://hub.docker.com/layers/modelzai/gradio-visual-chatgpt/23.03/images/sha256-124e4c8352a28f9d6a337e69e2191c379a40d1bea612553f25c2a3cf2aa4f298?context=repo) to deploy the app. `OPENAI_API_KEY` is required as an environment variable. You could get it from OpenAI.
+<Callout emoji="🚀">
+Please add the environment variable `OPENAI_API_KEY` to your deployment.
+</Callout>
+
+import Image from 'next/image'
+import detail from './images/visual-chatgpt.png'
+
+<Image src={detail} alt="Visual ChatGPT template" width={500} height={1000} />
