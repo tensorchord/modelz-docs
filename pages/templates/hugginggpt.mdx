@@ -1,0 +1,22 @@
+# HuggingGPT (Jarvis)
+
+[HuggingGPT (Jarvis)](https://github.com/microsoft/JARVIS) is a collaborative system that consists of **an LLM as the controller** and **numerous expert models as collaborative executors** (from HuggingFace Hub). The workflow of our system consists of four stages:
++ **Task Planning**: Using ChatGPT to analyze the requests of users to understand their intention, and disassemble them into possible solvable tasks.
++ **Model Selection**: To solve the planned tasks, ChatGPT selects expert models hosted on Hugging Face based on their descriptions.
++ **Task Execution**: Invokes and executes each selected model, and return the results to ChatGPT.
++ **Response Generation**: Finally, using ChatGPT to integrate the prediction of all models, and generate responses.
+
+![](https://github.com/microsoft/JARVIS/raw/main/assets/overview.jpg)
+
+You could use modelz template to deploy your personal HuggingGPT instance. 
+
+import {Callout } from 'nextra-theme-docs'
+
+<Callout emoji="🚀">
+Please use A100(40GB) for the best performance.
+</Callout>
+
+import Image from 'next/image'
+import detail from './images/hugginggpt-detail.png'
+
+<Image src={detail} alt="HuggingGPT template" width={500} height={1000} />
