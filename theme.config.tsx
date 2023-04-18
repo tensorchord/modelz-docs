@@ -3,7 +3,7 @@ import { DocsThemeConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 
 const config: DocsThemeConfig = {
-  logo:  <img src="/logo.svg" alt='modelz' />,
+  logo: <img src="/logo.svg" alt='modelz' />,
   head: (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
