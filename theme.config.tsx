@@ -19,8 +19,8 @@ const config: DocsThemeConfig = {
   banner: {
     key: 'modelz-release',
     text: (
-      <a href="https://modelz.zi" target="_blank" rel="noreferrer">
-        🎉 Modelz is in alpha. Read more →
+      <a href="https://forms.gle/pqhGRv8iwTRF3TsY7" target="_blank" rel="noreferrer">
+        🎉 Modelz is in alpha. Fill the form to apply →
       </a>
     )
   },
