@@ -1,7 +1,7 @@
 {
-  "name": "nextra-docs-template",
+  "name": "modelz-docs",
   "version": "0.0.1",
-  "description": "Nextra docs template",
+  "description": "ModelZ docs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shuding/nextra-docs-template.git"
+    "url": "git+https://github.com/tensorchord/modelz-docs.git"
   },
-  "author": "Shu Ding <g@shud.in>",
+  "author": "ModelZ Team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shuding/nextra-docs-template/issues"
+    "url": "https://github.com/tensorchord/modelz-docs/issues"
   },
-  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
+  "homepage": "https://modelz.ai",
   "dependencies": {
     "next": "^13.0.6",
     "nextjs-google-analytics": "^2.3.3",
