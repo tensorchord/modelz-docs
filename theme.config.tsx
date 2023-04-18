@@ -4,6 +4,14 @@ import { useRouter } from 'next/router'
 
 const config: DocsThemeConfig = {
   logo: <span>Modelz</span>,
+  head: (
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta property="og:title" content="Modelz" />
+      <meta property="og:description" content="Deploy your machine learning models effortlessly on a pay-as-you-go serverless infrastructure." />
+    </>
+  ),
+
   chat: {
     link: 'https://discord.gg/F4WnzqmeNj',
   },
