@@ -1,6 +1,6 @@
 # Whisper
 
-[Whipser](https://openai.com/research/whisper) is an automatic speech recognition system that enables transcription in multiple languages.
+[Whisper](https://openai.com/research/whisper) is an automatic speech recognition system that enables transcription in multiple languages.
 
 We provide the [**mosec**](../frameworks/mosec) inference service template.
 
@@ -21,7 +21,7 @@ import modelz
 
 APIKey = "mzi-abcdefg..."
 
-cli = modelz.ModelzClient(project="whisper-demo-XXX", key=APIKey, serde="raw")
+cli = modelz.ModelzClient(deployment="whisper-demo-XXX", key=APIKey, serde="raw")
 with open("speech_16000.mp3", "rb") as f:
     data = f.read()
 resp = cli.inference(params=data)
