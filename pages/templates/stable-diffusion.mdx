@@ -34,6 +34,6 @@ import modelz
 
 APIKey = "mzi-abcdefg..."
 
-cli = modelz.ModelzClient(project="abcdgefg...", key=APIKey, serde="msgpack")
+cli = modelz.ModelzClient(deployment="abcdgefg...", key=APIKey, serde="msgpack")
 cli.inference(params="A dog is running in the grass.").save_to_file("dog.jpg")
 ```
