@@ -1,6 +1,7 @@
 {
     "huggingface-space": "From Huggingface Space",
     "hugginggpt": "HuggingGPT (Jarvis)",
+    "stablelm": "StableLM (7B)",
     "stable-diffusion": "Stable Diffusion",
     "baize": "Baize (7B)",
     "visual-chatgpt": "Visual ChatGPT",
