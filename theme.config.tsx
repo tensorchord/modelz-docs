@@ -3,7 +3,7 @@ import { DocsThemeConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 
 const config: DocsThemeConfig = {
-  logo: <img src="/logo.svg" alt='modelz' />,
+  logo: <img src="/logo.svg" style={{width: "140px"}} alt='modelz' />,
   head: (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,7 +29,7 @@ const config: DocsThemeConfig = {
     key: 'modelz-release',
     text: (
       <a href="https://forms.gle/pqhGRv8iwTRF3TsY7" target="_blank" rel="noreferrer">
-        🎉 Modelz is in alpha. Fill the form to apply →
+        🎉 ModelZ is in alpha. Fill the form to apply →
       </a>
     )
   },
