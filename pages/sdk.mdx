@@ -19,7 +19,7 @@ import modelz
 # Or you could set the environment variable MODELZ_API_KEY
 key = "mzi-abcde..."
 
-client = modelz.ModelzClient(key=key, deployment="stable-diffusion-w41s2qknzjo0fk3i", serde="msgpack")
-resp = client.inference(params="cute cat")
+client = modelz.ModelzClient(key=key, deployment="stable-diffusion-w41s2qknzjo0fk3i")
+resp = client.inference(params="cute cat", serde="msgpack")
 resp.save_to_file("inference.jpg")
 ```
