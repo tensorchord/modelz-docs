@@ -41,7 +41,7 @@ const config: DocsThemeConfig = {
     labels: 'feedback'
   },
   sidebar: {
-    defaultMenuCollapseLevel: 2,
+    defaultMenuCollapseLevel: 3,
   },
   footer: {
     text: (

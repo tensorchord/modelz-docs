@@ -2,8 +2,7 @@
   "index": "Introduction",
   "gettingstarted": "Getting Started",
   "concepts": "Concepts",
-  "frameworks": "Frameworks",
-  "templates": "Templates & Examples",
+  "frameworks": "Frameworks & Templates",
   "speedup": "Speedup & Optimization",
   "observability": "Observability",
   "-- Integration": {

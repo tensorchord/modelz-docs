@@ -1,12 +1,17 @@
 # Visual ChatGPT
 
+import { DeployButton } from 'components/deployButton'
+
+<DeployButton style={{marginTop: '12px'}} link='https://cloud.modelz.ai/deployment/template?templateId=80612506-935c-4279-9651-deb02fbaee89'/>
+
+
 [Visual ChatGPT](https://github.com/microsoft/visual-chatgpt) connects ChatGPT and a series of Visual Foundation Models to enable sending and receiving images during chatting. The model is open sourced by Microsoft.
 
 ![](./images/vc-demo.gif)
 
 ## Gradio
 
-You could deploy our pre-built Gradio app [here](https://cloud.modelz.ai/deployment/template) if you want to quickly try out Visual ChatGPT.
+You could deploy our pre-built Gradio app via:
 
 import {Callout } from 'nextra-theme-docs'
 
@@ -14,7 +19,4 @@ import {Callout } from 'nextra-theme-docs'
 Please add the environment variable `OPENAI_API_KEY` to your deployment.
 </Callout>
 
-import Image from 'next/image'
-import detail from './images/visual-chatgpt.png'
-
-<Image src={detail} alt="Visual ChatGPT template" width={500} height={1000} />
+<DeployButton style={{marginTop: '12px'}} link='https://cloud.modelz.ai/deployment/template?templateId=80612506-935c-4279-9651-deb02fbaee89'/>
