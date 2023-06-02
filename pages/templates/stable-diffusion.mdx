@@ -1,5 +1,9 @@
 # Stable Diffusion
 
+import { DeployButton } from 'components/deployButton'
+
+<DeployButton style={{marginTop: '12px'}} link='https://cloud.modelz.ai/deployment/template?templateId=80612506-935c-4279-9651-deb02fbaee89'/>
+
 [Stable Diffusion](https://github.com/Stability-AI/stablediffusion) is a latent text-to-image diffusion model capable of generating photo-realistic images given any text input.
 
 ![stable diffusion](./images/sd.png)
@@ -10,7 +14,7 @@ We provide the [**Gradio**](../frameworks/gradio) app based on [AUTOMATIC1111/st
 
 You could deploy our pre-built Gradio app [here](https://cloud.modelz.ai/deployment/template) if you want to quickly try out Stable Diffusion.
 
-![](./images/sd-gradio.png)
+![stable diffusion gradio ui](./images/sd-gradio.png)
 
 You could use the pre-built docker image [modelzai/gradio-stable-diffusion:23.03](https://hub.docker.com/layers/modelzai/gradio-stable-diffusion/23.03/images/sha256-45529c4783f716fd30d16ea054718286c14f0cc289bc6cc4a7057269eaace430?context=repo) to deploy the app.
 
