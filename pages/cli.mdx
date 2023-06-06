@@ -15,7 +15,21 @@ pip install modelz-py
 You could use `modelz inference` to send a prediction request to the server:
 
 ```bash copy
-modelz inference $DEPLOYMENT_KEY --params prompt="cute cat"
+modelz inference -d $DEPLOYMENT_KEY prompt="cute cat"
+```
+
+Or retrieve the deployment metrics:
+
+```bash copy
+modelz metrics -d $DEPLOYMENT_KEY
+```
+
+For more details, check the help message:
+
+```bash copy
+modelz --help
+modelz inference --help
+modelz metrics --help
 ```
 
 You need to replace `$DEPLOYMENT_KEY` with the key of your deployment. Besides this, you need to set the environment variable `MODELZ_API_KEY` to your API key. You could get it from the [**API Keys**](https://cloud.modelz.ai/settings/user) page.
