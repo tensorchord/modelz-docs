@@ -2,8 +2,7 @@
   "index": "Introduction",
   "gettingstarted": "Getting Started",
   "concepts": "Concepts",
-  "frameworks": "Frameworks",
-  "templates": "Templates & Examples",
+  "frameworks": "Frameworks & Templates",
   "speedup": "Speedup & Optimization",
   "observability": "Observability",
   "-- Integration": {
@@ -19,7 +18,6 @@
   },
   "community": "Community & Support",
   "billing": "Payment & Billing",
-  "roadmap": "Roadmap",
   "limits": "Limits & Limitations",
   "faq": "FAQ",
   "home": {

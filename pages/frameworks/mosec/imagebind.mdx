@@ -1,0 +1,37 @@
+# ImageBind
+
+import { DeployButton } from 'components/deployButton'
+
+<DeployButton style={{marginTop: '12px'}} link='https://cloud.modelz.ai/deployment/template?templateId=e33c2785-8a03-4263-a183-4da3caa0fe00'/>
+
+[ImageBind](https://github.com/facebookresearch/ImageBind) learns a joint embedding across six different modalities - images, text, audio, depth, thermal, and IMU data. It enables novel emergent applications 'out-of-the-box' including cross-modal retrieval, composing modalities with arithmetic, cross-modal detection and generation.
+
+![img](https://user-images.githubusercontent.com/8495451/236859695-ffa13364-3e39-4d99-a8da-fbfab17f9a6b.gif)
+
+We provide the [**mosec**](../frameworks/mosec) inference service template.
+
+- CLI
+
+```shell copy
+# CLI doesn't support multiple words now
+export MODELZ_API_KEY=mzi-abcdefg...
+modelz inference --deployment imagebind-XXX --serde msgpack model=imagebind-text input="A dog"
+```
+
+- Python Client
+
+```python copy
+import modelz
+
+APIKey = "mzi-abcdefg..."
+
+cli = modelz.ModelzClient(deployment="imagebind-XXX", key=APIKey)
+
+input = {"model": "imagebind-text", "input": ["A dog", "doggery", "puppy"]},
+resp = cli.inference(params=data, serde="msgpack")
+embeddings = resp["data"]
+for emb in embeddings:
+    print(emb['embedding'])
+```
+
+The template supports image, audio, and video data embedding. Please refer to our [example](https://github.com/tensorchord/modelz-imagebind/blob/main/example/client.py) for more embedding, or better [type hint](https://docs.python.org/3/library/typing.html) of `modelz` Request and Response.

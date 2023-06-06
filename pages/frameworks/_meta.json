@@ -1,5 +1,7 @@
 {
     "gradio": "Gradio",
-    "mosec": "Mosec"
+    "mosec": "Mosec",
+    "streamlit": "Streamlit",
+    "other": "Any Framework"
 }
   

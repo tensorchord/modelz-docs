@@ -4,7 +4,5 @@
     "stablelm": "StableLM (7B)",
     "stable-diffusion": "Stable Diffusion",
     "baize": "Baize (7B)",
-    "visual-chatgpt": "Visual ChatGPT",
-    "whisper": "Whisper"
+    "visual-chatgpt": "Visual ChatGPT"
 }
-  

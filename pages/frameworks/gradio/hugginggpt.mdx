@@ -1,5 +1,9 @@
 # HuggingGPT (Jarvis)
 
+import { DeployButton } from 'components/deployButton'
+
+<DeployButton style={{marginTop: '12px'}} link='https://cloud.modelz.ai/deployment/template?templateId=6ebaec96-2057-4d4f-9ba7-072d7504b2c2'/>
+
 [HuggingGPT (Jarvis)](https://github.com/microsoft/JARVIS) is a collaborative system that consists of **an LLM as the controller** and **numerous expert models as collaborative executors** (from HuggingFace Hub). The workflow of our system consists of four stages:
 + **Task Planning**: Using ChatGPT to analyze the requests of users to understand their intention, and disassemble them into possible solvable tasks.
 + **Model Selection**: To solve the planned tasks, ChatGPT selects expert models hosted on Hugging Face based on their descriptions.
@@ -8,7 +12,7 @@
 
 ![](https://github.com/microsoft/JARVIS/raw/main/assets/overview.jpg)
 
-You could use modelz template to deploy your personal HuggingGPT instance. 
+You could use modelz template to deploy your personal HuggingGPT instance:
 
 import {Callout } from 'nextra-theme-docs'
 
@@ -16,7 +20,4 @@ import {Callout } from 'nextra-theme-docs'
 Please use A100(40GB) for the best performance.
 </Callout>
 
-import Image from 'next/image'
-import detail from './images/hugginggpt-detail.png'
-
-<Image src={detail} alt="HuggingGPT template" width={500} height={1000} />
+<DeployButton style={{marginTop: '12px'}} link='https://cloud.modelz.ai/deployment/template?templateId=6ebaec96-2057-4d4f-9ba7-072d7504b2c2'/>
