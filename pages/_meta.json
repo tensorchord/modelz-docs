@@ -25,5 +25,11 @@
     "type": "page",
     "href": "https://modelz.ai",
     "newWindow": true
+  },
+  "cloud": {
+    "title": "Sign in ↗",
+    "type": "page",
+    "href": "https://cloud.modelz.ai",
+    "newWindow": true
   }
 }
