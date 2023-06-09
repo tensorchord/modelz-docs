@@ -13,6 +13,8 @@ const config: DocsThemeConfig = {
     </>
   ),
 
+  darkMode: false,
+
   chat: {
     link: 'https://discord.gg/F4WnzqmeNj',
   },
