@@ -1,10 +1,10 @@
 # SDKs
 
-In this section, we will introduce how to use the SDK to interact with Modelz.
+In this section, we will introduce how to use the SDK to interact with ModelZ.
 
 ## Python
 
-We provide a Python SDK for interacting with Modelz. You can install it with `pip`:
+We provide a Python SDK for interacting with ModelZ. You can install it with `pip`:
 
 ```bash copy
 pip install modelz-py
@@ -19,7 +19,7 @@ import modelz
 # Or you could set the environment variable MODELZ_API_KEY
 key = "mzi-abcde..."
 
-client = modelz.ModelzClient(key=key, deployment="stable-diffusion-w41s2qknzjo0fk3i")
+client = modelz.ModelZClient(key=key, deployment="stable-diffusion-w41s2qknzjo0fk3i")
 resp = client.inference(params="cute cat", serde="msgpack")
 resp.save_to_file("inference.jpg")
 ```
