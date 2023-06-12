@@ -2,15 +2,15 @@
 
 This page will show you how to make predictions using your deployments.
 
-## Use the Modelz SDK
+## Use the ModelZ SDK
 
-The easiest way to make predictions is to use the Modelz SDK.
+The easiest way to make predictions is to use the ModelZ SDK.
 
 ```shell copy
 pip install modelz-py
 ```
 
-For example, if you have deployed a Deployment `a2a4bb7d-2899-4472-a3b4-ee69f04650a9` and you want to make a prediction using the Modelz SDK, you could run the following code:
+For example, if you have deployed a Deployment `a2a4bb7d-2899-4472-a3b4-ee69f04650a9` and you want to make a prediction using the ModelZ SDK, you could run the following code:
 
 ``` python copy
 import modelz
@@ -18,11 +18,11 @@ import modelz
 
 APIKey = "mzi-abcdefg..."
 
-cli = modelz.ModelzClient(key=APIKey, deployment="a2a4bb7d-2899-4472-a3b4-ee69f04650a9")
+cli = modelz.ModelZClient(key=APIKey, deployment="a2a4bb7d-2899-4472-a3b4-ee69f04650a9")
 cli.inference(params={}, timeout=10)
 ```
 
-## Use the Modelz CLI
+## Use the ModelZ CLI
 
 ```shell copy
 modelz inference --help

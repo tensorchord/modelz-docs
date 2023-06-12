@@ -7,7 +7,7 @@ const config: DocsThemeConfig = {
   head: (
     <>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta property="og:title" content="Modelz" />      
+      <meta property="og:title" content="ModelZ" />      
       <meta property="og:description" content="Deploy your machine learning models effortlessly on a pay-as-you-go serverless infrastructure." />      
       <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     </>
@@ -23,7 +23,7 @@ const config: DocsThemeConfig = {
     const { asPath } = useRouter()
     if (asPath !== '/') {
       return {
-        titleTemplate: '%s – Modelz'
+        titleTemplate: '%s – ModelZ'
       }
     }
   },

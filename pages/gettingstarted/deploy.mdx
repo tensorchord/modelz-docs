@@ -1,23 +1,23 @@
 # Deploy
 
-Modelz is an end-to-end platform for developers, that allows you to create and deploy your models to the cloud in just a few minutes.
+ModelZ is an end-to-end platform for developers, that allows you to create and deploy your models to the cloud in just a few minutes.
 
 ## Sign up
 
-To sign up for Modelz, go to https://cloud.modelz.ai/signup. You can choose to authenticate either with GitHub or by using an email. When using email authentication, you may need to confirm both your email address and a phone number.
+To sign up for ModelZ, go to https://cloud.modelz.ai/signup. You can choose to authenticate either with GitHub or by using an email. When using email authentication, you may need to confirm both your email address and a phone number.
 
 ## Create & deploy a Deployment
 
-Once you have successfully signed up for Modelz, you're ready to start creating a deployment.
+Once you have successfully signed up for ModelZ, you're ready to start creating a deployment.
 
-A [**Deployment**](../concepts/deployment) is the place where you write your prediction code and deploy it to the cloud. When you visit the dashboard, you'll see a list of all your inference deployments. There are two ways to create a new deployment on Modelz:
+A [**Deployment**](../concepts/deployment) is the place where you write your prediction code and deploy it to the cloud. When you visit the dashboard, you'll see a list of all your inference deployments. There are two ways to create a new deployment on ModelZ:
 
 - **Use a [Template](../templates).** You could use one of our templates to get started with your deployment.
 - **Build and deploy a new deployment from scratch**. You could visit the [**Build**](../deployments/build) page to learn how to build a new inference server and push it to a Docker Registry.
 
 ### Use a Template
 
-Modelz provides a set of pre-built templates that you could use to get started with your deployment. You could visit [cloud.modelz.ai/deployment/template](http://cloud.modelz.ai/deployment/template) to get all public templates.
+ModelZ provides a set of pre-built templates that you could use to get started with your deployment. You could visit [cloud.modelz.ai/deployment/template](http://cloud.modelz.ai/deployment/template) to get all public templates.
 
 ![Templates](./images/templates.png)
 
@@ -25,7 +25,7 @@ You could click on the template to use it. You'll be redirected to the deploymen
 
 ## Configure your Deployment
 
-Whenever you create a new inference deployment on Modelz, the platform will try to preselect the right default configuration for you.
+Whenever you create a new inference deployment on ModelZ, the platform will try to preselect the right default configuration for you.
 
 import { Tab, Tabs } from 'nextra-theme-docs'
 import Image from 'next/image'
@@ -47,9 +47,9 @@ import gradioDemo from './images/gradio-demo.png'
 
 ### Autoscaling
 
-Currently, Modelz supports autoscaling based on inflight requests. This means that you can configure your inference deployment to scale up or down based on the number of requests that are currently being processed.
+Currently, ModelZ supports autoscaling based on inflight requests. This means that you can configure your inference deployment to scale up or down based on the number of requests that are currently being processed.
 
-You could configure a minimum and maximum number of replicas for your inference deployment. For example, if you set the minimum number of replicas to 1 and the maximum number of replicas to 10, then Modelz will make sure that your inference deployment always has at least 1 replica running, and at most 10 replicas running.
+You could configure a minimum and maximum number of replicas for your inference deployment. For example, if you set the minimum number of replicas to 1 and the maximum number of replicas to 10, then ModelZ will make sure that your inference deployment always has at least 1 replica running, and at most 10 replicas running.
 
 For more information about autoscaling, you could visit the [**Autoscaler**](../concepts/deployment#autoscaler) page.
 

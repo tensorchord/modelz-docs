@@ -1,13 +1,13 @@
 # OpenAI Compatible API for Open Source LLMs
 
-We provide an OpenAI compatible API for open source LLMs with the help of [Modelz-LLM](https://github.com/tensorchord/modelz-llm). You could easily integrate new open source LLMs (e.g. [LLaMA](https://github.com/facebookresearch/llama), [ChatGLM](https://github.com/THUDM/ChatGLM-6B/blob/main/README_en.md)...) into your existing applications without any code changes if you are using [OpenAI python package](https://github.com/openai/openai-python) or [langchain](https://github.com/hwchase17/langchain).
+We provide an OpenAI compatible API for open source LLMs with the help of [ModelZ-LLM](https://github.com/tensorchord/modelz-llm). You could easily integrate new open source LLMs (e.g. [LLaMA](https://github.com/facebookresearch/llama), [ChatGLM](https://github.com/THUDM/ChatGLM-6B/blob/main/README_en.md)...) into your existing applications without any code changes if you are using [OpenAI python package](https://github.com/openai/openai-python) or [langchain](https://github.com/hwchase17/langchain).
 
 ## Features
 
-- **OpenAI compatible API**: Modelz LLM provides an OpenAI compatible API for LLMs, which means you can use the OpenAI python SDK to interact with the model.
-- **Self-hosted**: Modelz LLM can be easily deployed on either local or cloud-based environments.
-- **Open source LLMs**: Modelz LLM supports open source LLMs, such as FastChat, LLaMA, and ChatGLM.
-- **Cloud native**: We provide docker images for different LLMs, which can be easily deployed on Kubernetes, or other cloud-based environments (e.g. [Modelz](https://docs.modelz.ai))
+- **OpenAI compatible API**: ModelZ LLM provides an OpenAI compatible API for LLMs, which means you can use the OpenAI python SDK to interact with the model.
+- **Self-hosted**: ModelZ LLM can be easily deployed on either local or cloud-based environments.
+- **Open source LLMs**: ModelZ LLM supports open source LLMs, such as FastChat, LLaMA, and ChatGLM.
+- **Cloud native**: We provide docker images for different LLMs, which can be easily deployed on Kubernetes, or other cloud-based environments (e.g. [ModelZ](https://docs.modelz.ai))
 
 ## Supported Models
 
@@ -27,7 +27,7 @@ Then you can use the OpenAI python SDK to interact with the model:
 ```python
 import openai
 openai.api_base="https://<deployment-key>.modelz.io"
-# Your Modelz API key
+# Your ModelZ API key
 openai.api_key="mzi-xxx"
 
 # create a chat completion
@@ -41,7 +41,7 @@ You could also integrate modelz-llm with langchain:
 ```python
 import openai
 openai.api_base="https://<deployment-key>.modelz.io"
-# Your Modelz API key
+# Your ModelZ API key
 openai.api_key="mzi-xxx"
 
 from langchain.llms import OpenAI
