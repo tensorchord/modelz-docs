@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://docs.modelz.ai
+
+# Sitemaps
+Sitemap: https://docs.modelz.ai/sitemap.xml

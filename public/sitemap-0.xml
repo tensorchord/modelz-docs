@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://docs.modelz.ai</loc><lastmod>2023-06-17T06:36:37.264Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/api-reference</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/billing</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/cli</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/community</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/concepts</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/concepts/deployment</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/concepts/framework</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/faq</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/gradio</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/gradio/huggingface-space</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/gradio/hugginggpt</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/gradio/stable-diffusion</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/gradio/stablelm</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/gradio/visual-chatgpt</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/mosec</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/mosec/imagebind</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/mosec/stable-diffusion</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/mosec/whisper</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/other</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/other/openai</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/streamlit</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/frameworks/streamlit/background-removal</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/gettingstarted/build</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/gettingstarted/deploy</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/gettingstarted/inference</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/limits</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/observability/monitoring</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/observability/runtime-logs</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/sdk</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://docs.modelz.ai/speedup/cold-start</loc><lastmod>2023-06-17T06:36:37.265Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>
