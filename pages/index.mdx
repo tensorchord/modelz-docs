@@ -54,8 +54,8 @@ Take the following walkthrough to get started:
 
   APIKey = "mzi-abcdefg..."
 
-  cli = modelz.ModelZClient(key=APIKey, deployment="abcdgefg...")
-  cli.inference(params={}, timeout=10)
+  cli = modelz.ModelzClient(key=APIKey, deployment="abcdgefg...", timeout=10)
+  cli.inference(params={})
   ```
 
   Or alternatively, you could use the `curl`.

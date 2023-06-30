@@ -18,8 +18,8 @@ import modelz
 
 APIKey = "mzi-abcdefg..."
 
-cli = modelz.ModelZClient(key=APIKey, deployment="a2a4bb7d-2899-4472-a3b4-ee69f04650a9")
-cli.inference(params={}, timeout=10)
+cli = modelz.ModelzClient(key=APIKey, deployment="a2a4bb7d-2899-4472-a3b4-ee69f04650a9", timeout=10)
+cli.inference(params={})
 ```
 
 ## Use the ModelZ CLI
