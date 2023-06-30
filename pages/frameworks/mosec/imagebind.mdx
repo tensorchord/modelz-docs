@@ -25,7 +25,7 @@ import modelz
 
 APIKey = "mzi-abcdefg..."
 
-cli = modelz.ModelZClient(deployment="imagebind-XXX", key=APIKey)
+cli = modelz.ModelzClient(deployment="imagebind-XXX", key=APIKey)
 
 input = {"model": "imagebind-text", "input": ["A dog", "doggery", "puppy"]},
 resp = cli.inference(params=data, serde="msgpack")
