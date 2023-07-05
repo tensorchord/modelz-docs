@@ -1,0 +1,3 @@
+scheme = [ "file" ]
+# remap the `mdx` file but exclude all the png/gif files
+remap = [ '(?m)file://([/0-9A-Za-z\-]+)$ file://$1.mdx' ]
