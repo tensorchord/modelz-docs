@@ -12,7 +12,7 @@ export const DeployButton = ({ link, style }) => {
         height="41"
         viewBox="0 0 131 41"
         fill="none"
-        xmlns="https://www.w3.org/2000/svg"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <rect width="131" height="41" fill="#101509" />
         <rect width="131" height="41" fill="#101509" />
