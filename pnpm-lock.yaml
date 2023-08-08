@@ -2321,7 +2321,7 @@ packages:
     resolution: {integrity: sha512-MYjZTiAETGG28/7fBH1RjuY7vzDwYC5q5U4whCgM4jNEQcC0gAvN339LxXukmL2T2tGpzYTfp+LZ5RN7E5DwEg==}
     engines: {node: '>=10'}
     dependencies:
-      semver: 7.5.1
+      semver: 7.5.4
     dev: false
 
   /node-addon-api@6.1.0:
@@ -2652,8 +2652,8 @@ packages:
       kind-of: 6.0.3
     dev: false
 
-  /semver@7.5.1:
-    resolution: {integrity: sha512-Wvss5ivl8TMRZXXESstBA4uR5iXgEN/VC5/sOcuXdVLzcdkz4HWetIoRfG5gb5X+ij/G9rw9YoGn3QoQ8OCSpw==}
+  /semver@7.5.4:
+    resolution: {integrity: sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
@@ -2669,7 +2669,7 @@ packages:
       detect-libc: 2.0.1
       node-addon-api: 6.1.0
       prebuild-install: 7.1.1
-      semver: 7.5.1
+      semver: 7.5.4
       simple-get: 4.0.1
       tar-fs: 2.1.1
       tunnel-agent: 0.6.0
