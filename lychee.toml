@@ -1,3 +1,6 @@
-scheme = [ "file" ]
+scheme = [ "https", "http", "email", "file" ]
 # remap the `mdx` file but exclude all the png/gif files
-remap = [ '(?m)file://([/0-9A-Za-z\-]+)$ file://$1.mdx' ]
+remap = [
+    '(?m)file://([/0-9A-Za-z\-]+)$ file://$1.mdx',
+    '(?m)file://([/0-9A-Za-z\-]+)#([a-zA-Z0-9]+)$ file://$1.mdx#$2',
+]
