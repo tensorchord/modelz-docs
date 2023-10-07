@@ -4,6 +4,8 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+  schedule:
+    - cron: '45 18 * * *'
 
 jobs:
   linkChecker:
