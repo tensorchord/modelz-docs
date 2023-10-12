@@ -5,6 +5,8 @@
   "frameworks": "Frameworks & Templates",
   "speedup": "Speedup & Optimization",
   "observability": "Observability",
+  "byoc": "Bring Your Own Cloud",
+  "collaboration": "Team Collaboration",
   "-- Integration": {
     "type": "separator",
     "title": "Integration"
