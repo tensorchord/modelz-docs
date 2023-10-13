@@ -1,4 +1,5 @@
 {
     "architecture": "Architecture",
-    "installation": "Installation"
+    "installation": "Installation",
+    "deploy": "Model Deployment"
 }

@@ -10,11 +10,12 @@ With BYOC, the data infrastructure, storage and network are owned by youself. We
 
 Let's see how it works:
 - Firstly, You can refer to the [install document](./installation.mdx), install agent components.
-- Once the agent is ready, developers can deploy models through the [ModelZ Console](../pages/gettingstarted/deploy.mdx),[ModelZ CLI](../pages/cli.mdx) or [ModelZ SDK](../pages/sdk.mdx). 
-- The ModelZ Control Plane, deployed outside of your private environment, interacts with the agent in your cluster, ensuring accurate and real-time state synchronization and updates according to the configurations defined.
+- Once the agent is ready, developers can deploy models through the [ModelZ Console](../gettingstarted/deploy.mdx),[ModelZ CLI](../cli.mdx) or [ModelZ SDK](../sdk.mdx). 
+- The ModelZ control plane, deployed outside of your private environment, interacts with the agent in your cluster, ensuring accurate and real-time state synchronization and updates according to the configurations defined.
+- The data plane, deployed inside your private environment, resources related to the inference model will be created, such as deployment, service. If you want to expose your model deployment to the internet, it will create additional ingress for external access. 
 
 ## Agent
-The agent components contain agent, Prometheus, Autoscaler, Modelzetes and IngressOperator.
+The agent components contain agent, Prometheus, Autoscaler, Modelzetes and IngressOperator, as a data plane it will be deployed in your private environment.
 
 - Agent implements all the APIs used by the ModelZ control plane, it will periodically synchronize information and status. It will control the deployment, service and the ingress lifecycle. 
 
