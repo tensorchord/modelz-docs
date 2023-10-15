@@ -1,9 +1,9 @@
 # BYOC Installation
 
-We offer two installation methods, depending on whether you are using kubernetes or vm. Both are very simple and you can deploy in less than 1 minute! they all need agent token, you can get it from ModelZ dashboard.
+We offer two installation methods, depending on whether or not you are connecting an existing kubernetes you maintain to ModelZ. Both are very simple and you can deploy in less than 1 minute! they all need agent token, you can get it from ModelZ dashboard.
 ![agent_token](./images/agent_token.jpg)
-## VM
 
+## VM or Your Home Lab
 ### Preparation
 ```shell
 $ pip install openmodelz
@@ -42,24 +42,22 @@ $ mdz server start --modelzcloud-agent-token=byoc:cd4a928c-7c66-4934-beb2-98dd82
 ```
 - `--modelzcloud-agent-token` is generated from ModelZ dashboard.
 - `--modelzcloud-enabled` means enable ModelZ Cloud Management.
-- `--modelzcloud-region=us-central1-a` is the region of your owner VPC.
-- `34.134.190.132` is the LoadBalancer IP for ingress nginx.
+- `--modelzcloud-region=us-central1-a` is the region of your own VPC.
+- `34.134.190.132` is the LoadBalancer IP for ingress nginx, it must be public IP to make sure accessible from the outside world. If you setup an instance VM in GCP, you can refer [reserve static external ip address](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address).
 
 You can check if the cluster is ready.
 ```shell
 $mdz server list
-NAME   PHASE  ALLOCATABLE     CAPACITY       
-cegao  Ready  cpu: 2          cpu: 2         
-              memory: 5.3GiB  memory: 5.3GiB 
+NAME           PHASE  ALLOCATABLE     CAPACITY       
+Ubuntu20.04    Ready  cpu: 2          cpu: 2         
+               memory: 5.3GiB  memory: 5.3GiB 
 ```
 
 If you want to add other VM as node of your cluster, you can refer this [document](https://docs.open.modelz.ai/).
 
-## Existed kubernetes
+## Existing Kubernetes
 ### Preparation
-```
-wget https://get.helm.sh/helm-v3.12.3-linux-amd64.tar.gz
-```
+You need install [Helm CLI](https://helm.sh/docs/intro/install/).
 
 ### Installation
 ```shell
@@ -91,9 +89,9 @@ If you successfully installed using any of the above methods, you can see your o
 In order for the model to be deployed to the hardware you specify，you need configure the hardware requirements for your deployment. You need label every node in your cluster:
 ```
 # VM
-$ k3s kubectl label node cegao ai.tensorchord.server-resource=cpu-1c-2g
+$ k3s kubectl label node Ubuntu20.04 ai.tensorchord.server-resource=cpu-1c-2g
 # Existed kubernetes
-$ kubectl label node cegao ai.tensorchord.server-resource=cpu-1c-2g
+$ kubectl label node Ubuntu20.04 ai.tensorchord.server-resource=cpu-1c-2g
 ```
 **Notice**: Currently we only support two formats of hardware, `nvidia-tesla-t4-1-16g-4c-16g` and `cpu-4c-16g`.
 - `nvidia-tesla-t4-1-16g-4c-16g`
