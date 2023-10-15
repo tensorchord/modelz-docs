@@ -40,3 +40,8 @@ You can configure the secret of private artifact registry(e.g., GCR, ECR, Docker
 
 When deploy your models with private image, you need specify the secret.
 ![deploy_secret](./images/deploy_secret.jpg)
+
+We currently support three types of secret:
+-  Docker: Provide a Username and Bearer token for accessing the registry
+- AWS Key Secret: Provide AWS access key id and secret access key, you can refer the [document](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html).
+- GCP Service Token: Service Account JSON Key file, you can refer the [document](https://cloud.google.com/iam/docs/keys-create-delete).
