@@ -1,5 +1,6 @@
 # ImageBind
 
+import { Tabs } from 'nextra/components'
 import { DeployButton } from 'components/deployButton'
 
 <DeployButton style={{marginTop: '12px'}} link='https://cloud.modelz.ai/deployment/template?templateId=e33c2785-8a03-4263-a183-4da3caa0fe00'/>
@@ -10,17 +11,18 @@ import { DeployButton } from 'components/deployButton'
 
 We provide the [**mosec**](../mosec) inference service template.
 
-- CLI
+See also the Prediction Integration [**docs**](../../cli-sdk/prediction).
 
-```shell copy
-# CLI doesn't support multiple words now
+<Tabs items={['CLI', 'SDK']}>
+  <Tabs.Tab>
+    ```shell
 export MODELZ_API_KEY=mzi-abcdefg...
 modelz inference --deployment imagebind-XXX --serde msgpack model=imagebind-text input="A dog"
-```
-
-- Python Client
-
-```python copy
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+# pip install modelz-py
 import modelz
 
 APIKey = "mzi-abcdefg..."
@@ -32,6 +34,8 @@ resp = cli.inference(params=data, serde="msgpack")
 embeddings = resp["data"]
 for emb in embeddings:
     print(emb['embedding'])
-```
+    ```
+  </Tabs.Tab>
+</Tabs>
 
 The template supports image, audio, and video data embedding. Please refer to our [example](https://github.com/tensorchord/modelz-imagebind/blob/main/example/client.py) for more embedding, or better [type hint](https://docs.python.org/3/library/typing.html) of `modelz` Request and Response.

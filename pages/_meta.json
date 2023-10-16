@@ -1,35 +1,34 @@
 {
-  "index": "Introduction",
-  "gettingstarted": "Getting Started",
-  "concepts": "Concepts",
-  "frameworks": "Frameworks & Templates",
-  "speedup": "Speedup & Optimization",
-  "observability": "Observability",
-  "-- Integration": {
-    "type": "separator",
-    "title": "Integration"
-  },
-  "cli": "CLI",
-  "sdk": "SDKs",
-  "api-reference": "API Reference",
-  "-- About": {
-    "type": "separator",
-    "title": "About"
-  },
-  "community": "Community & Support",
-  "billing": "Payment & Billing",
-  "limits": "Limits & Limitations",
-  "faq": "FAQ",
-  "home": {
-    "title": "Home ↗",
-    "type": "page",
-    "href": "https://modelz.ai",
-    "newWindow": true
-  },
-  "cloud": {
-    "title": "Sign in ↗",
-    "type": "page",
-    "href": "https://cloud.modelz.ai",
-    "newWindow": true
-  }
+    "index": "Introduction",
+    "gettingstarted": "Getting Started",
+    "concepts": "Concepts",
+    "frameworks": "Frameworks & Templates",
+    "speedup": "Speedup & Optimization",
+    "observability": "Observability",
+    "-- Integration": {
+        "type": "separator",
+        "title": "Integration"
+    },
+    "cli-sdk": "CLI/SDK",
+    "api-reference": "API Reference",
+    "-- About": {
+        "type": "separator",
+        "title": "About"
+    },
+    "community": "Community & Support",
+    "billing": "Payment & Billing",
+    "limits": "Limits & Limitations",
+    "faq": "FAQ",
+    "home": {
+        "title": "Home ↗",
+        "type": "page",
+        "href": "https://modelz.ai",
+        "newWindow": true
+    },
+    "cloud": {
+        "title": "Sign in ↗",
+        "type": "page",
+        "href": "https://cloud.modelz.ai",
+        "newWindow": true
+    }
 }

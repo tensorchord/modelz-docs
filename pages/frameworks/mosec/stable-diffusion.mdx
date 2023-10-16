@@ -1,5 +1,6 @@
 # Stable Diffusion
 
+import { Tabs } from 'nextra/components'
 import { DeployButton } from 'components/deployButton'
 
 <DeployButton style={{marginTop: '12px'}} link='https://cloud.modelz.ai/deployment/template?templateId=af118880-4090-4e0e-a323-c22539d8d9d7'/>
@@ -8,24 +9,26 @@ import { DeployButton } from 'components/deployButton'
 
 ![stable diffusion](./images/sd.png)
 
-You could deploy the inference server template then use our [**SDK**](../../sdk) to make predictions.
+You could deploy the inference server template.
 
-- CLI
+See also the Prediction Integration [**docs**](../../cli-sdk/prediction).
 
-```shell copy
+<Tabs items={['CLI', 'SDK']}>
+  <Tabs.Tab>
+    ```shell
 export MODELZ_API_KEY=mzi-abcdefg...
 modelz inference --deployment sdtest-xxx --serde msgpack --write-file cat.jpg 'draw a cute cat'
-```
-
-- Client
-
-```python copy
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
 # pip install modelz-py
 import modelz
-
 
 APIKey = "mzi-abcdefg..."
 
 cli = modelz.ModelzClient(deployment="abcdgefg...", key=APIKey, serde="msgpack")
 cli.inference(params="A dog is running in the grass.").save_to_file("dog.jpg")
-```
+    ```
+  </Tabs.Tab>
+</Tabs>

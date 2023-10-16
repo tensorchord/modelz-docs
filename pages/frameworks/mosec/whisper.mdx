@@ -1,5 +1,6 @@
 # Whisper
 
+import { Tabs } from 'nextra/components'
 import { DeployButton } from 'components/deployButton'
 
 <DeployButton style={{marginTop: '12px'}} link='https://cloud.modelz.ai/deployment/template?templateId=a5df0bdb-672c-417e-9910-29e536600358'/>
@@ -10,7 +11,9 @@ We provide the [**mosec**](../mosec) inference service template.
 
 ## Mosec
 
-You can deploy the pre-built template [here](https://cloud.modelz.ai/deployment/template) to deploy the service. Run the inference with [**SDK**](../../sdk).
+You can deploy the pre-built template [here](https://cloud.modelz.ai/deployment/template) to deploy the service.
+
+See also the Prediction Integration [**docs**](../../cli-sdk/prediction).
 
 - CLI
 ```shell copy
@@ -31,3 +34,26 @@ with open("speech_16000.mp3", "rb") as f:
 resp = cli.inference(params=data, serde="raw")
 print(resp.data)
 ```
+
+<Tabs items={['CLI', 'SDK']}>
+  <Tabs.Tab>
+    ```shell
+export MODELZ_API_KEY=mzi-abcdefg...
+modelz inference --deployment whisper-demo-XXX --serde raw --read-stdin <speech_16000.mp3
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+# pip install modelz-py
+import modelz
+
+APIKey = "mzi-abcdefg..."
+
+cli = modelz.ModelzClient(deployment="whisper-demo-XXX", key=APIKey)
+with open("speech_16000.mp3", "rb") as f:
+    data = f.read()
+resp = cli.inference(params=data, serde="raw")
+print(resp.data)
+    ```
+  </Tabs.Tab>
+</Tabs>
