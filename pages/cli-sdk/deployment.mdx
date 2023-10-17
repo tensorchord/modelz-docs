@@ -1,0 +1,248 @@
+# Deployment Integration
+
+import { Tabs, Callout, Steps, Cards, Card } from 'nextra/components'
+
+<Cards>
+  <Card icon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>} title="modelz-py" href="https://github.com/tensorchord/modelz-py" />
+</Cards>
+
+<Callout>
+  `modelz-py` ≥ `0.3.4` is required for deployment integration.
+</Callout>
+
+These are some situations where you might find it's inapproprate to [**deploy by WebUI**](../gettingstarted/deploy):
+- You have no desktop environment at all, mostly inside a Linux terminal.
+- You want to automate the process of deploy to ModelZ, for example construct a CI/CD pipeline.
+- You want to call ModelZ API directly and integrate with other tools or platforms.
+
+That's why ModelZ CLI/SDK `DeploymentClient` comes here!
+
+We support two ways to operate ModelZ deployments by programing through our Python SDK:
+- To use as a client, suits for terminal and CI/CD.
+- To use as a library, suits for API adaption.
+
+You could create, list/get, update or delete any deployment at ModelZ by these two ways.
+
+## Steps to do Deployment Integration
+
+In this section, we will introduce how to use the CLI/SDK to interact with ModelZ deployments.
+
+<Steps>
+### Installation
+```shell
+pip install modelz-py
+```
+
+### Configure Requirement
+Get ModelZ User ID and API Key from https://cloud.modelz.ai/settings after register.
+
+Go to [Authentication](../concepts/auth) for how API Key works.
+
+<Tabs items={['CLI', 'SDK']}>
+  <Tabs.Tab>
+    ```shell
+export MODELZ_API_KEY=mzi-1234567890987654321
+export MODELZ_USER=00000000-1111-1111-1111-000000000000c
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+  ```python
+from modelz import DeploymentClient
+from modelz.openapi.sdk.models import (
+        DeploymentSpec,
+        DeploymentCreateRequest,
+        DeploymentDockerSource,
+        DeploymentSource,
+        FrameworkType,
+        ServerResource,
+)
+from modelz.console import jsonFormattedPrint
+
+modelz_user_id = "00000000-1111-1111-1111-000000000000"
+modelz_api_key = "mzi-1234567890987654321"
+
+client = DeploymentClient(login_name=modelz_user_id, key=modelz_api_key)
+  ```
+  </Tabs.Tab>
+</Tabs>
+
+### Create a new deployment
+
+To create a deployment at ModelZ by code is easy, you only need to:
+
+<Tabs items={['CLI', 'SDK']}>
+  <Tabs.Tab>
+    ```shell
+modelz deployment create \
+--image us-central1-docker.pkg.dev/nth-guide-378813/modelzai/mosec-stable-diffusion:23.04.1 \
+--server-resource nvidia-tesla-t4-4c-16g \
+--framework mosec \
+--name stable-diffusion-mosec
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+spec = DeploymentSpec(
+        deployment_source=DeploymentSource(
+            docker=DeploymentDockerSource(
+                image="us-central1-docker.pkg.dev/nth-guide-378813/modelzai/mosec-stable-diffusion:23.04.1")),
+        server_resource=ServerResource.NVIDIA_TESLA_T4_4C_16G,
+        framework=FrameworkType.MOSEC,
+        name="stable-diffusion",
+        min_replicas=0,
+        max_replicas=1,
+        startup_duration=300,
+        zero_duration=300,
+        target_load=10,
+    )
+resp = client.create(DeploymentCreateRequest(spec))
+print(jsonFormattedPrint(resp))
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+Then you could get deployment ID for next step:
+
+<Tabs items={['CLI', 'SDK']}>
+  <Tabs.Tab>
+  Read it from `$.spec.id`:
+    ```json
+    {
+        "spec": {
+            "deployment_resource": {},
+            "deployment_source": {
+                "docker": {
+                    "image": "us-central1-docker.pkg.dev/nth-guide-378813/modelzai/mosec-stable-diffusion:23.04.1"
+                }
+            },
+            "framework": "mosec",
+            "http_probe_path": "/",
+            "id": "0a93636b-5ed3-4abd-8fac-8a7c5a4026c9",
+            "image_config": {
+                "enable_cache_optimize": false
+            },
+            "max_replicas": 1,
+            "min_replicas": 0,
+            "name": "stable-diffusion-mosec",
+            "server_resource": "nvidia-tesla-t4-4c-16g",
+            "startup_duration": 300,
+            "target_load": 10,
+            "zero_duration": 300
+        },
+        "status": {
+            "available_replicas": 0,
+            "innocation_count": 0,
+            "replicas": 0
+        }
+    }
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+deployment_id = resp.parsed.spec.id
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### List or Get deployments
+ 
+After a deployment is created, whether by WebUI or code, you could review it:
+
+<Callout>
+  `Get` requires deployment ID, while `List` not.
+</Callout>
+
+<Tabs items={['CLI/List', 'CLI/Get', 'SDK/List', 'SDK/Get']}>
+  <Tabs.Tab>
+    ```shell
+modelz deployment list
+    ```
+  </Tabs.Tab>
+    <Tabs.Tab>
+    ```shell
+modelz deployment get -d 0a93636b-5ed3-4abd-8fac-8a7c5a4026c9
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+resp = client.list()
+print(jsonFormattedPrint(resp))
+    ```
+  </Tabs.Tab>
+    <Tabs.Tab>
+    ```python
+resp = client.get(deployment_id)
+print(jsonFormattedPrint(resp))
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+After a little while(~10s), you could get endpoint for inference:
+
+<Tabs items={['CLI/Get', 'SDK/Get']}>
+  <Tabs.Tab>
+  Read it from `$.status.endpoint`:
+    ```json
+    {
+        "spec": {
+            "deployment_resource": {},
+            "deployment_source": {
+                "docker": {
+                    "image": "us-central1-docker.pkg.dev/nth-guide-378813/modelzai/mosec-stable-diffusion:23.04.1"
+                }
+            },
+            "framework": "mosec",
+            "id": "0a93636b-5ed3-4abd-8fac-8a7c5a4026c9",
+            "image_config": {
+                "enable_cache_optimize": false
+            },
+            "max_replicas": 1,
+            "min_replicas": 0,
+            "name": "stable-diffusion-mosec",
+            "server_resource": "nvidia-tesla-t4-4c-16g",
+            "startup_duration": 300,
+            "target_load": 10,
+            "zero_duration": 300
+        },
+        "status": {
+            "available_replicas": 0,
+            "created_at": "2023-10-12T06:17:15Z",
+            "endpoint": "https://stable-diffusion-mosec-vc166fuhjuzkupai.modelz.io",
+            "innocation_count": 0,
+            "phase": "NoReplicas",
+            "replicas": 0
+        }
+    }
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+endpoint = resp.parsed.status.endpoint
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Delete deployments
+
+When you don't need the deployment, you could delete it to release its resources and terminate billing.
+
+<Callout type="warning">
+  Different from WebUI, `delete` starts immediately, without any confirmation.
+</Callout>
+
+<Tabs items={['CLI', 'SDK']}>
+  <Tabs.Tab>
+    ```shell
+modelz deployment delete -d 0a93636b-5ed3-4abd-8fac-8a7c5a4026c9
+    ```
+  </Tabs.Tab>
+  <Tabs.Tab>
+    ```python
+client.delete(deployment_id)
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+</Steps>
+
